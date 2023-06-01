@@ -11,14 +11,7 @@ module.exports = {
     'plugin:import/typescript'
   ],
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 'latest',
-  },
   plugins: [
-    '@typescript-eslint',
     'react',
     '@typescript-eslint',
     'prettier',
@@ -94,6 +87,14 @@ module.exports = {
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking'
+      ],
+
+      parserOptions: {
+        project: ['./tsconfig.json']
+      },
       rules: {
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
