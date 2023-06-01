@@ -1,5 +1,6 @@
-import {StyleSheet} from 'react-native';
-import colors from './colors';
+import { StyleSheet } from 'react-native'
+
+import colors from './colors'
 
 export const buttonStyles: StyleSheet.NamedStyles<any> = {
   button: {
@@ -9,12 +10,12 @@ export const buttonStyles: StyleSheet.NamedStyles<any> = {
     alignItems: 'center',
     marginHorizontal: 10,
     borderRadius: 5,
-    backgroundColor: colors.purple,
+    backgroundColor: colors.purple
   },
   text: {
     color: colors.white,
     textAlign: 'center',
     fontSize: 17,
-    fontWeight: 'bold',
-  },
-};
+    fontWeight: 'bold'
+  }
+}

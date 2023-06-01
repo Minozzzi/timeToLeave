@@ -1,24 +1,33 @@
-import React, {useCallback} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useCallback } from 'react'
 
-import {Task} from '../models/Task';
-import {TaskRealmContext} from '../models';
-import {IntroText} from './IntroText';
-import {AddTaskForm} from './AddTaskForm';
-import TaskList from './TaskList';
+import { View, StyleSheet } from 'react-native'
 
-const {useRealm} = TaskRealmContext;
+import { AddTaskForm } from './AddTaskForm'
+import { IntroText } from './IntroText'
+import TaskList from './TaskList'
+import { TaskRealmContext } from '../models'
+import { Task } from '../models/Task'
+
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    paddingTop: 20,
+    paddingHorizontal: 20
+  }
+})
+
+const { useRealm } = TaskRealmContext
 
 export const TaskManager: React.FC<{
-  tasks: Realm.Results<Task & Realm.Object>;
-  userId?: string;
-}> = ({tasks, userId}) => {
-  const realm = useRealm();
+  tasks: Realm.Results<Task & Realm.Object>
+  userId?: string
+}> = ({ tasks, userId }) => {
+  const realm = useRealm()
 
   const handleAddTask = useCallback(
     (description: string): void => {
       if (!description) {
-        return;
+        return
       }
 
       // Everything in the function passed to "realm.write" is a transaction and will
@@ -28,12 +37,10 @@ export const TaskManager: React.FC<{
       // may occasionally be online during short time spans we want to increase the probability
       // of sync participants to successfully sync everything in the transaction, otherwise
       // no changes propagate and the transaction needs to start over when connectivity allows.
-      realm.write(() => {
-        return new Task(realm, description, userId);
-      });
+      realm.write(() => new Task(realm, description, userId))
     },
-    [realm, userId],
-  );
+    [realm, userId]
+  )
 
   const handleToggleTaskStatus = useCallback(
     (task: Task & Realm.Object): void => {
@@ -46,8 +53,9 @@ export const TaskManager: React.FC<{
         // the property values. If the changes adhere to the schema, Realm will accept
         // this new version of the object and wherever this object is being referenced
         // locally will also see the changes "live".
-        task.isComplete = !task.isComplete;
-      });
+        // eslint-disable-next-line no-param-reassign
+        task.isComplete = !task.isComplete
+      })
 
       // Alternatively if passing the ID as the argument to handleToggleTaskStatus:
       // realm?.write(() => {
@@ -56,20 +64,20 @@ export const TaskManager: React.FC<{
       //   task.isComplete = !task.isComplete;
       // });
     },
-    [realm],
-  );
+    [realm]
+  )
 
   const handleDeleteTask = useCallback(
     (task: Task & Realm.Object): void => {
       realm.write(() => {
-        realm.delete(task);
+        realm.delete(task)
 
         // Alternatively if passing the ID as the argument to handleDeleteTask:
         // realm?.delete(realm?.objectForPrimaryKey('Task', id));
-      });
+      })
     },
-    [realm],
-  );
+    [realm]
+  )
 
   return (
     <View style={styles.content}>
@@ -84,13 +92,5 @@ export const TaskManager: React.FC<{
         />
       )}
     </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    paddingTop: 20,
-    paddingHorizontal: 20,
-  },
-});
+  )
+}

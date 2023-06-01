@@ -1,13 +1,30 @@
-import React, {useState} from 'react';
-import {StyleSheet, Switch, Text, View} from 'react-native';
-import {TaskRealmContext} from '../models';
+import React, { useState } from 'react'
 
-const {useRealm} = TaskRealmContext;
+import { StyleSheet, Switch, Text, View } from 'react-native'
 
-export function OfflineModeButton() {
-  const realm = useRealm();
+import { TaskRealmContext } from '../models'
 
-  const [pauseSync, togglePauseSync] = useState(false);
+const styles = StyleSheet.create({
+  icon: { padding: 12 },
+  toggleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12
+  },
+  toggleText: {
+    flex: 1,
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: 'bold'
+  }
+})
+
+const { useRealm } = TaskRealmContext
+
+export const OfflineModeButton = () => {
+  const realm = useRealm()
+
+  const [pauseSync, togglePauseSync] = useState(false)
 
   return (
     <View style={styles.toggleRow}>
@@ -15,30 +32,15 @@ export function OfflineModeButton() {
       <Switch
         onValueChange={() => {
           if (!pauseSync && realm.syncSession?.state === 'active') {
-            realm.syncSession.pause();
-            togglePauseSync(true);
+            realm.syncSession.pause()
+            togglePauseSync(true)
           } else if (pauseSync && realm.syncSession?.state === 'inactive') {
-            realm.syncSession.resume();
-            togglePauseSync(false);
+            realm.syncSession.resume()
+            togglePauseSync(false)
           }
         }}
         value={realm.syncSession?.state === 'inactive'}
       />
     </View>
-  );
+  )
 }
-
-const styles = StyleSheet.create({
-  icon: {padding: 12},
-  toggleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 12,
-  },
-  toggleText: {
-    flex: 1,
-    fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-});

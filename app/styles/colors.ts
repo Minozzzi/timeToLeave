@@ -4,7 +4,7 @@ const colors = {
   purpleDark: '#4238a6',
   gray: '#B5B5B5',
   white: '#FFFFFF',
-  black: '#000000',
-};
+  black: '#000000'
+}
 
-export default colors;
+export default colors

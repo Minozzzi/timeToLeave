@@ -1,38 +1,11 @@
-import React from 'react';
-import Realm from 'realm';
-import {View, Text, Pressable, StyleSheet} from 'react-native';
+import React from 'react'
 
-import {shadows} from '../styles/shadows';
-import colors from '../styles/colors';
-import {Task} from '../models/Task';
+import { View, Text, Pressable, StyleSheet } from 'react-native'
+import Realm from 'realm'
 
-type TaskItemProps = {
-  task: Task & Realm.Object;
-  onToggleStatus: () => void;
-  onDelete: () => void;
-};
-
-export const TaskItem = React.memo<TaskItemProps>(
-  ({task, onToggleStatus, onDelete}) => {
-    return (
-      <View style={styles.task}>
-        <Pressable
-          onPress={onToggleStatus}
-          style={[styles.status, task.isComplete && styles.completed]}>
-          <Text style={styles.icon}>{task.isComplete ? '✓' : '○'}</Text>
-        </Pressable>
-        <View style={styles.descriptionContainer}>
-          <Text numberOfLines={1} style={styles.description}>
-            {task.description}
-          </Text>
-        </View>
-        <Pressable onPress={onDelete} style={styles.deleteButton}>
-          <Text style={styles.deleteText}>Delete</Text>
-        </Pressable>
-      </View>
-    );
-  },
-);
+import { Task } from '../models/Task'
+import colors from '../styles/colors'
+import { shadows } from '../styles/shadows'
 
 const styles = StyleSheet.create({
   task: {
@@ -42,16 +15,16 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     backgroundColor: colors.white,
     borderRadius: 5,
-    ...shadows,
+    ...shadows
   },
   descriptionContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   description: {
     paddingHorizontal: 10,
     color: colors.black,
-    fontSize: 17,
+    fontSize: 17
   },
   status: {
     width: 50,
@@ -59,23 +32,50 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
-    backgroundColor: colors.gray,
+    backgroundColor: colors.gray
   },
   completed: {
-    backgroundColor: colors.purple,
+    backgroundColor: colors.purple
   },
   deleteButton: {
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   deleteText: {
     marginHorizontal: 10,
     color: colors.gray,
-    fontSize: 17,
+    fontSize: 17
   },
   icon: {
     color: colors.white,
     textAlign: 'center',
     fontSize: 17,
-    fontWeight: 'bold',
-  },
-});
+    fontWeight: 'bold'
+  }
+})
+
+type TaskItemProps = {
+  task: Task & Realm.Object
+  onToggleStatus: () => void
+  onDelete: () => void
+}
+
+export const TaskItem = React.memo<TaskItemProps>(
+  ({ task, onToggleStatus, onDelete }) => (
+    <View style={styles.task}>
+      <Pressable
+        onPress={onToggleStatus}
+        style={[styles.status, task.isComplete && styles.completed]}
+      >
+        <Text style={styles.icon}>{task.isComplete ? '✓' : '○'}</Text>
+      </Pressable>
+      <View style={styles.descriptionContainer}>
+        <Text numberOfLines={1} style={styles.description}>
+          {task.description}
+        </Text>
+      </View>
+      <Pressable onPress={onDelete} style={styles.deleteButton}>
+        <Text style={styles.deleteText}>Delete</Text>
+      </Pressable>
+    </View>
+  )
+)
