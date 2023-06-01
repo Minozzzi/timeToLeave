@@ -1,7 +1,6 @@
 module.exports = {
   root: true,
   extends: [
-    '@react-native-community',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'airbnb',
@@ -9,16 +8,14 @@ module.exports = {
     'prettier',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:import/typescript',
+    'plugin:import/typescript'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: './tsconfig.json',
   },
   plugins: [
     '@typescript-eslint',
@@ -26,7 +23,7 @@ module.exports = {
     '@typescript-eslint',
     'prettier',
     'jsx-a11y',
-    'react-hooks',
+    'react-hooks'
   ],
   rules: {
     'prettier/prettier': 'error',
@@ -100,8 +97,8 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
-        'no-undef': 'off',
-      },
-    },
-  ],
-};
+        'no-undef': 'off'
+      }
+    }
+  ]
+}

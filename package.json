@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint:staged": "lint-staged"
   },
   "dependencies": {
@@ -22,7 +22,6 @@
     "@babel/plugin-proposal-decorators": "^7.22.3",
     "@babel/runtime": "^7.22.3",
     "@commitlint/config-conventional": "^17.6.3",
-    "@react-native-community/eslint-config": "^2.0.0",
     "@realm/babel-plugin": "^0.1.1",
     "@types/jest": "^26.0.24",
     "@types/react-native": "^0.67.21",
@@ -45,6 +44,7 @@
     "jest": "^26.6.3",
     "lint-staged": "^13.2.2",
     "metro-react-native-babel-preset": "^0.72.3",
+    "prettier": "^2.8.8",
     "react-test-renderer": "^18.2.0",
     "typescript": "^4.9.5"
   },
