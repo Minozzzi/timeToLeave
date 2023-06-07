@@ -3,7 +3,12 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Text, View } from 'react-native'
 
-const { Navigator, Screen } = createNativeStackNavigator()
+export type StackParams = {
+  HomeScreen: undefined
+  NewClock: undefined
+}
+
+const { Navigator, Screen } = createNativeStackNavigator<StackParams>()
 
 const Home = () => (
   <View>
@@ -13,6 +18,6 @@ const Home = () => (
 
 export const AppRoutes = () => (
   <Navigator screenOptions={{ headerShown: false }}>
-    <Screen name="home" component={Home} />
+    <Screen name="HomeScreen" component={Home} />
   </Navigator>
 )
