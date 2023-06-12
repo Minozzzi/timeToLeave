@@ -7,7 +7,7 @@ import com.android.build.OutputFile
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
  */
- react {
+react {
     /* Folders */
     //   The root of your project, i.e. where "package.json" lives. Default is '..'
     // root = file("../")
@@ -53,10 +53,10 @@ import com.android.build.OutputFile
 }
 
 /**
-  * Set this to true to create four separate APKs instead of one,
-  * one for each native architecture. This is useful if you don't
-  * use App Bundles (https://developer.android.com/guide/app-bundle/)
-  * and want to have separate APKs to upload to the Play Store.
+ * Set this to true to create four separate APKs instead of one,
+ * one for each native architecture. This is useful if you don't
+ * use App Bundles (https://developer.android.com/guide/app-bundle/)
+ * and want to have separate APKs to upload to the Play Store.
  */
 def enableSeparateBuildPerCPUArchitecture = false
 
@@ -66,7 +66,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 /**
- * The preferred build flavor of JavaScriptCore (JSC).
+ * The preferred build flavor of JavaScriptCore (JSC)
  *
  * For example, to use the international variant, you can use:
  * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`
@@ -93,7 +93,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.rndiffapp"
+    namespace "com.timetoleave"
     defaultConfig {
         applicationId "com.timetoleave"
         minSdkVersion rootProject.ext.minSdkVersion
