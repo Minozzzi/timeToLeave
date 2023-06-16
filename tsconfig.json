@@ -5,6 +5,7 @@
     "paths": {
       "@/*": ["./app/*"]
     },
-    "types": ["styled-components-react-native"]
+    "types": ["styled-components-react-native"],
+    "module": "ESNext"
   }
 }
