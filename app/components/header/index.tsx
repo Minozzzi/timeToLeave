@@ -10,6 +10,6 @@ export const Header: React.FC = () => (
       <SubTitle>Saiba a hora de sair do trabalho.</SubTitle>
     </Greeting>
 
-    <IconButton icon="logout" />
+    <IconButton icon="SignOut" />
   </Container>
 )
