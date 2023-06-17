@@ -1,4 +1,4 @@
-import { Calendar, SignOut } from '@phosphor-icons/react'
+import { Calendar, SignOut } from 'phosphor-react-native'
 
 export type Icons = keyof typeof icons
 

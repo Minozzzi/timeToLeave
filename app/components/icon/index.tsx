@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { IconProps } from '@phosphor-icons/react'
+import { IconProps } from 'phosphor-react-native'
 
 import { type Icons, icons } from '@/icons'
 
