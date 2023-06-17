@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Text, View } from 'react-native'
+
+import { Home } from '@/screens'
 
 export type StackParams = {
   HomeScreen: undefined
@@ -9,12 +10,6 @@ export type StackParams = {
 }
 
 const { Navigator, Screen } = createNativeStackNavigator<StackParams>()
-
-const Home = () => (
-  <View>
-    <Text>Home</Text>
-  </View>
-)
 
 export const AppRoutes = () => (
   <Navigator screenOptions={{ headerShown: false }}>

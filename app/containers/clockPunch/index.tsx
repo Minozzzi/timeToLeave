@@ -16,7 +16,7 @@ import { icons } from '@/icons'
 import { formatDate } from '@/utils/dates'
 
 export type ClockPunchContainerProps = {
-  _id: string
+  id: string
   entrance: Date
   exit: Date
   created_at: Date
@@ -42,7 +42,7 @@ export const ClockPunchContainer = ({ data, ...rest }: Props) => {
 
         <Footer>
           <Info>
-            <Calendar name="calendar" color={theme.COLORS.SUBTEXT} size={16} />
+            <Calendar color={theme.COLORS.SUBTEXT} size={16} />
             <Label>
               {formatDate({
                 date: data.created_at,
