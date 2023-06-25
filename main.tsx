@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import Toast from 'react-native-toast-message'
 import { ThemeProvider } from 'styled-components'
 
 import { RealmProvider } from '@/models'
@@ -9,6 +9,7 @@ export const App = () => (
   <ThemeProvider theme={theme}>
     <RealmProvider>
       <Routes />
+      <Toast />
     </RealmProvider>
   </ThemeProvider>
 )
