@@ -14,7 +14,7 @@ export const Button: React.FC<Props> = ({
   isLoading = false,
   ...rest
 }) => (
-  <Container disabled={isLoading} {...rest}>
-    {isLoading ? <Load /> : <Title>{title}</Title>}
+  <Container testID="button" disabled={isLoading} {...rest}>
+    {isLoading ? <Load testID="loading" /> : <Title>{title}</Title>}
   </Container>
 )
