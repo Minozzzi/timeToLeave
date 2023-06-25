@@ -2,17 +2,21 @@ import React from 'react'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { Home } from '@/screens'
+import { Home, NewClockPunch } from '@/screens'
 
-export type StackParams = {
+export type StackNavigationProps = {
   HomeScreen: undefined
-  NewClock: undefined
+  NewClockPunchScreen: undefined
 }
 
-const { Navigator, Screen } = createNativeStackNavigator<StackParams>()
+const { Navigator, Screen } = createNativeStackNavigator<StackNavigationProps>()
 
 export const AppRoutes = () => (
-  <Navigator screenOptions={{ headerShown: false }}>
+  <Navigator
+    initialRouteName="HomeScreen"
+    screenOptions={{ headerShown: false }}
+  >
     <Screen name="HomeScreen" component={Home} />
+    <Screen name="NewClockPunchScreen" component={NewClockPunch} />
   </Navigator>
 )

@@ -3,13 +3,21 @@ import React from 'react'
 import { Container } from './styles'
 import { Button, Header } from '@/components'
 import { ClockPunchList } from '@/containers'
+import { useAppNavigation } from '@/hooks'
 
-export const Home: React.FC = () => (
-  <Container>
-    <Header />
+export const Home: React.FC = () => {
+  const { navigate } = useAppNavigation()
 
-    <ClockPunchList />
+  return (
+    <Container>
+      <Header />
 
-    <Button title="Nova entrada/saída" onPress={() => null} />
-  </Container>
-)
+      <ClockPunchList />
+
+      <Button
+        title="Nova entrada/saída"
+        onPress={() => navigate('NewClockPunchScreen')}
+      />
+    </Container>
+  )
+}
