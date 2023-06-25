@@ -70,6 +70,10 @@ export const useClockPunchList = () => {
     const hours = Math.floor(timeLeftInHours)
     const minutes = Math.ceil((timeLeftInHours - hours) * 60)
 
+    if (hours < 0 || minutes < 0) {
+      return '00:00'
+    }
+
     return `${hours}:${minutes}`
   }, [clockPunches])
 
