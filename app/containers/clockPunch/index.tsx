@@ -35,18 +35,21 @@ export const ClockPunchContainer = ({ data, ...rest }: Props) => {
       <Content>
         <Header>
           <Title>
-            {formatDate({ date: data.entrance, formatter: 'HH:MM' })}
+            Entrada: {formatDate({ date: data.entrance, formatter: 'HH:mm' })}
           </Title>
-          <Title>{formatDate({ date: data.exit, formatter: 'HH:MM' })}</Title>
+          <Title>
+            Saída: {formatDate({ date: data.exit, formatter: 'HH:mm' })}
+          </Title>
         </Header>
 
         <Footer>
           <Info>
             <Calendar color={theme.COLORS.SUBTEXT} size={16} />
             <Label>
+              Criado em:{' '}
               {formatDate({
                 date: data.created_at,
-                formatter: 'DD/MM - HH:MM'
+                formatter: 'dd/MM - HH:mm'
               })}
             </Label>
           </Info>

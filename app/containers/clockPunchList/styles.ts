@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 export const Container = styled.View`
   flex: 1;
   margin-top: 44px;
+  margin-bottom: 24px;
 `
 
 export const Header = styled.View`
@@ -22,5 +23,17 @@ export const Title = styled.Text`
 export const Counter = styled.Text`
   font-size: 14px;
   color: ${({ theme }) => theme.COLORS.SUBTEXT};
+  margin-bottom: 12px;
+`
+
+export const NotFoundContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`
+
+export const NotFoundMessage = styled.Text`
+  font-size: 16px;
+  color: ${({ theme }) => theme.COLORS.TEXT};
   margin-bottom: 12px;
 `
