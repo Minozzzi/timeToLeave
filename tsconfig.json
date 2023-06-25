@@ -1,11 +1,11 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "."                                       /* Specify the base directory to resolve non-relative module names. */,
+    "baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
       "@/*": ["./app/*"]
     },
-    "types": ["styled-components-react-native"],
+    "types": ["styled-components-react-native", "jest"],
     "module": "ESNext"
   }
 }
